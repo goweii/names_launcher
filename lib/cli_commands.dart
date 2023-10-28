@@ -26,13 +26,13 @@ Future<void> changeLauncherNames({
 
   final String? defaultName = yamlRoot[YAML_NAME_KEY];
 
-  if (_isPlatformEnabled(yamlPlatforms[YAML_PLATFORM_ANDROID_KEY], true)) {
+  if (_isPlatformEnabled(yamlPlatforms[YAML_PLATFORM_ANDROID_KEY], false)) {
     await _changeLauncherName(
       RenamePlatform.android,
       _getPlatformLauncherName(yamlPlatforms[YAML_PLATFORM_ANDROID_KEY], defaultName),
     );
   }
-  if (_isPlatformEnabled(yamlPlatforms[YAML_PLATFORM_IOS_KEY], true)) {
+  if (_isPlatformEnabled(yamlPlatforms[YAML_PLATFORM_IOS_KEY], false)) {
     await _changeLauncherName(
       RenamePlatform.ios,
       _getPlatformLauncherName(yamlPlatforms[YAML_PLATFORM_IOS_KEY], defaultName),

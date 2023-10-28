@@ -3,7 +3,7 @@ import 'package:names_launcher/cli_commands.dart';
 import 'package:names_launcher/constants.dart';
 
 /// Run to change launcher names
-void main(List<String> arguments) {
+void main(List<String> arguments) async {
   print(START_MESSAGE);
 
   final parser = ArgParser();
@@ -12,7 +12,7 @@ void main(List<String> arguments) {
 
   final parsedArgs = parser.parse(arguments);
 
-  changeLauncherNames(path: parsedArgs['path']);
+  await changeLauncherNames(path: parsedArgs['path']);
 
   print(END_MESSAGE);
 }
