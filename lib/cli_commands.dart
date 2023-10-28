@@ -82,17 +82,17 @@ Future<void> _changeLauncherName(RenamePlatform platform, String? name) async {
   print('Change $platform launcher name successfully.');
 }
 
-bool _isPlatformEnabled(Map yamlPlatform, bool defaultValue) {
-  final value = yamlPlatform[YAML_ENABLE_KEY];
+bool _isPlatformEnabled(Map? yamlPlatform, bool defaultValue) {
+  final value = yamlPlatform?[YAML_ENABLE_KEY];
   if (value == null) {
     return defaultValue;
   }
   return bool.parse(value.toString());
 }
 
-String? _getPlatformLauncherName(Map yamlPlatform, String? defaultValue) {
+String? _getPlatformLauncherName(Map? yamlPlatform, String? defaultValue) {
   final String? name;
-  final value = yamlPlatform[YAML_NAME_KEY];
+  final value = yamlPlatform?[YAML_NAME_KEY];
   if (value == null) {
     name = defaultValue;
   } else {
