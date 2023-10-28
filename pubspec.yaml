@@ -1,0 +1,38 @@
+name: names_launcher
+description: A command-line tool that simplifies the task of updating your Flutter app's launcher name.
+maintainer: goweii
+version: 0.0.1
+homepage: https://github.com/goweii/names_launcher
+repository: https://github.com/goweii/names_launcher
+issue_tracker: https://github.com/goweii/names_launcher/issues
+
+environment:
+  sdk: ">=3.1.4 <4.0.0"
+
+dependencies:
+  args: ^2.4.2
+  path: ^1.8.2
+  yaml: ^3.1.2
+  rename: ^2.1.1
+
+dev_dependencies:
+  build_runner: ^2.4.6
+  build_version: ^2.1.1
+
+# executables:
+#   change:
+#   reset:
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+topics:
+  - name
+  - app-name
+  - name-launcher
+  - launcher-name
