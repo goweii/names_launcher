@@ -3,6 +3,7 @@ library names_launcher;
 import 'dart:io';
 
 import 'package:names_launcher/constants.dart';
+import 'package:rename/enums.dart';
 import 'package:rename/rename.dart';
 import 'package:yaml/yaml.dart';
 
@@ -27,43 +28,43 @@ Future<void> changeLauncherNames({
 
   if (_isPlatformEnabled(yamlPlatforms[YAML_PLATFORM_ANDROID_KEY], true)) {
     await _changeLauncherName(
-      Platform.android,
+      RenamePlatform.android,
       _getPlatformLauncherName(yamlPlatforms[YAML_PLATFORM_ANDROID_KEY], defaultName),
     );
   }
   if (_isPlatformEnabled(yamlPlatforms[YAML_PLATFORM_IOS_KEY], true)) {
     await _changeLauncherName(
-      Platform.ios,
+      RenamePlatform.ios,
       _getPlatformLauncherName(yamlPlatforms[YAML_PLATFORM_IOS_KEY], defaultName),
     );
   }
   if (_isPlatformEnabled(yamlPlatforms[YAML_PLATFORM_MACOS_KEY], false)) {
     await _changeLauncherName(
-      Platform.macOS,
+      RenamePlatform.macOS,
       _getPlatformLauncherName(yamlPlatforms[YAML_PLATFORM_MACOS_KEY], defaultName),
     );
   }
   if (_isPlatformEnabled(yamlPlatforms[YAML_PLATFORM_WINDOWS_KEY], false)) {
     await _changeLauncherName(
-      Platform.windows,
+      RenamePlatform.windows,
       _getPlatformLauncherName(yamlPlatforms[YAML_PLATFORM_WINDOWS_KEY], defaultName),
     );
   }
   if (_isPlatformEnabled(yamlPlatforms[YAML_PLATFORM_LINUX_KEY], false)) {
     await _changeLauncherName(
-      Platform.linux,
+      RenamePlatform.linux,
       _getPlatformLauncherName(yamlPlatforms[YAML_PLATFORM_LINUX_KEY], defaultName),
     );
   }
   if (_isPlatformEnabled(yamlPlatforms[YAML_PLATFORM_WEB_KEY], false)) {
     await _changeLauncherName(
-      Platform.web,
+      RenamePlatform.web,
       _getPlatformLauncherName(yamlPlatforms[YAML_PLATFORM_WEB_KEY], defaultName),
     );
   }
 }
 
-Future<void> _changeLauncherName(Platform platform, String? name) async {
+Future<void> _changeLauncherName(RenamePlatform platform, String? name) async {
   if (name == null) {
     print('Change $platform launcher name failed. Did you forget to configure name in yaml?');
     return;
@@ -73,7 +74,11 @@ Future<void> _changeLauncherName(Platform platform, String? name) async {
     return;
   }
   print('Change $platform launcher name to "$name".');
-  await changeAppName(name, [platform]);
+  final rename = Rename.fromTargets(targets: [platform]);
+  await rename.applyWithCommand(
+    command: RenameCommand.setAppName,
+    value: name,
+  );
   print('Change $platform launcher name successfully.');
 }
 
