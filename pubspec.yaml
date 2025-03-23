@@ -36,6 +36,6 @@ topics:
   - name-launcher
   - launcher-name
 
-# dart pub publish --dry-
+# dart pub publish --dry-run
 # dart pub publish
 # flutter packages pub publish --server=https://pub.dartlang.org
