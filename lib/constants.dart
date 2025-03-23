@@ -17,6 +17,7 @@ const String END_MESSAGE = '''\n
 
 const String YAML_ROOT_KEY = 'names_launcher';
 const String YAML_NAME_KEY = 'name';
+const String YAML_DEFAULT_KEY = 'default';
 const String YAML_PLATFORMS_KEY = 'platforms';
 const String YAML_ENABLE_KEY = 'enable';
 const String YAML_PLATFORM_ANDROID_KEY = 'android';
