@@ -29,6 +29,20 @@ names_launcher:
       enable: true
 ```
 
+Or set localized app names as below
+
+```yaml
+names_launcher:
+  name:
+    default: "Your App Name"
+    zh: "中文名"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
+```
+
 ### 2. Run the package
 
 After setting up the configuration, all that is left to do is run the package:
@@ -57,10 +71,10 @@ In the above configuration, the package is setup to change the existing launcher
 
 Shown below is the full list of attributes which you can specify within your Names Launcher configuration.
 
-| Names Launcher Option | Type   | Default | Description                               |
-| --------------------- | ------ | ------- | ----------------------------------------- |
-| `name`                | String | `null`  | The launcher name                         |
-| `platforms`           | Object | `null`  | Use for specific platform to change names |
+| Names Launcher Option | Type          | Default | Description                               |
+| --------------------- | ------------- | ------- | ----------------------------------------- |
+| `name`                | String/Object | `null`  | The launcher name or localized names      |
+| `platforms`           | Object        | `null`  | Use for specific platform to change names |
 
 ---
 
@@ -73,35 +87,35 @@ Shown below is the full list of attributes which you can specify within your Nam
 | `web`            | Object | `null`  | Use for specific android platform |
 | `linux`          | Object | `null`  | Use for specific android platform |
 
-| Android Option | Type    | Default | Description                     |
-| -------------- | ------- | ------- | ------------------------------- |
-| `enable`       | Boolean | `false` | Use for enable android platform |
-| `name`         | String  | `null`  | The launcher name               |
+| Android Option | Type          | Default | Description                          |
+| -------------- | ------------- | ------- | ------------------------------------ |
+| `enable`       | Boolean       | `false` | Use for enable Android platform      |
+| `name`         | String/Object | `null`  | The launcher name or localized names |
 
-| IOS Option   | Type    | Default | Description                 |
-| ------------ | ------- | ------- | --------------------------- |
-| `enable`     | Boolean | `false` | Use for enable ios platform |
-| `name`         | String  | `null`  | The launcher name         |
+| iOS Option     | Type          | Default | Description                          |
+| -------------- | ------------- | ------- | ------------------------------------ |
+| `enable`       | Boolean       | `false` | Use for enable iOS platform          |
+| `name`         | String/Object | `null`  | The launcher name or localized names |
 
-| Web Option     | Type    | Default | Description                 |
-| -------------- | ------- | ------- | --------------------------- |
-| `enable`       | Boolean | `false` | Use for enable ios platform |
-| `name`         | String  | `null`  | The launcher name           |
+| MacOS Option   | Type          | Default | Description                          |
+| -------------- | ------------- | ------- | ------------------------------------ |
+| `enable`       | Boolean       | `false` | Use for enable MacOS platform        |
+| `name`         | String/Object | `null`  | The launcher name or localized names |
 
-| macOS Option | Type    | Default | Description                   |
-| ------------ | ------- | ------- | ----------------------------- |
-| `enable`     | Boolean | `false` | Use for enable macos platform |
-| `name`       | String  | `null`  | The launcher name             |
+| Windows Option | Type          | Default | Description                          |
+| -------------- | ------------- | ------- | ------------------------------------ |
+| `enable`       | Boolean       | `false` | Use for enable Windows platform      |
+| `name`         | String/Object | `null`  | The launcher name or localized names |
 
-| Windows Option | Type    | Default | Description                     |
-| -------------- | ------- | ------- | ------------------------------- |
-| `enable`       | Boolean | `false` | Use for enable windows platform |
-| `name`         | String  | `null`  | The launcher name               |
+| Linux Option   | Type          | Default | Description                          |
+| -------------- | ------------- | ------- | ------------------------------------ |
+| `enable`       | Boolean       | `false` | Use for enable Linux platform        |
+| `name`         | String/Object | `null`  | The launcher name or localized names |
 
-| Linux Option | Type    | Default | Description                   |
-| ------------ | ------- | ------- | ----------------------------- |
-| `enable`     | Boolean | `false` | Use for enable linux platform |
-| `name`       | String  | `null`  | The launcher name             |
+| Web Option     | Type          | Default | Description                          |
+| -------------- | ------------- | ------- | ------------------------------------ |
+| `enable`       | Boolean       | `false` | Use for enable Web platform          |
+| `name`         | String/Object | `null`  | The launcher name or localized names |
 
 ---
 
@@ -109,24 +123,20 @@ Shown below is the full list of attributes which you can specify within your Nam
 
 ```yaml
 names_launcher:
-  name: "Your App Default Name"
+  name:
+    default: "Your App Default Name"
+    zh: "应用中文名"
   platforms:
     android:
       enable: true
-      name: "Your Android App Name"
     ios:
       enable: true
-      name: "Your iOS App Name"
     web:
       enable: true
-      name: "Your Web App Name"
     macos:
       enable: false
-      name: "Your MasOS App Name"
     windows:
       enable: false
-      name: "Your Windows App Name"
     linux:
       enable: false
-      name: "Your Linux App Name"
 ```
